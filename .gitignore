@@ -103,6 +103,9 @@ ENV/
 # IntelliJ IDEA Files
 .idea/
 
-# Qbittorent Plugin Depencies for testing
+# Qbittorent Plugin Dependencies and other data for testing
 novaprinter.py
 helpers.py
+socks.py
+piratebay.py
+search.html
