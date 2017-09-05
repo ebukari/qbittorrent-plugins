@@ -109,4 +109,5 @@ helpers.py
 socks.py
 piratebay.py
 search.html
-torlock*
+torlock.png
+torlock.py
