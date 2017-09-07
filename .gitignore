@@ -104,10 +104,4 @@ ENV/
 .idea/
 
 # Qbittorent Plugin Dependencies and other data for testing
-novaprinter.py
-helpers.py
-socks.py
-piratebay.py
-search.html
-torlock.png
-torlock.py
+qbt/
