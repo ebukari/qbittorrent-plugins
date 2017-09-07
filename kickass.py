@@ -1,3 +1,5 @@
+#VERSION: 0.1
+#AUTHOR: Ezekiel N Bukari
 import logging
 
 try:
