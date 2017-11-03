@@ -1,4 +1,10 @@
+#VERSION: 0.2
+#AUTHORS: Charitoo Dunamis (charitoodunamis@gmail.com)
+#LICENSE: GNU GPL v3
 import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logging.getLogger(__name__)
 
 try:
     from html.parser import HTMLParser
@@ -6,19 +12,18 @@ except ImportError:
     from HTMLParser import HTMLParser
 
 try:
-    from helpers import retrieve_url
-    from novaprinter import prettyPrinter
-except ImportError as e:
     import sys
-    from os.path import dirname, abspath
+    from os.path import dirname, abspath, join as path_join
 
     lib_dir = abspath(dirname(dirname(__file__)))
+    lib_dir = path_join(lib_dir, 'qbt')
+    logging.debug("%s" % path_join(lib_dir, 'qbt'))
     sys.path.insert(0, lib_dir)
     from helpers import retrieve_url
     from novaprinter import prettyPrinter
-
-logging.basicConfig(level=logging.DEBUG)
-logging.getLogger(__name__)
+except ImportError:
+    from helpers import retrieve_url
+    from novaprinter import prettyPrinter
 
 BASES = 1024
 SIZES = {"KiB": BASES, "MiB": BASES**2, "GiB": BASES**3}
@@ -109,6 +114,6 @@ class kickass(object):
 if __name__ == "__main__":
     from pprint import pprint
     t = kickass()
-    t.search("game of thrones")
+    t.search("magnum")
     for torrent in t.results:
         pprint(torrent)

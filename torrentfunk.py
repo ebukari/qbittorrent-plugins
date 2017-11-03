@@ -3,13 +3,16 @@
 #LICENSE: GNU GPL v3
 
 import logging
+import sys
+from os.path import join, dirname, abspath
 try:
     from html.parser import HTMLParser
 except ImportError as e:
     from HTMLParser import HTMLParser
 
-from novaprinter import prettyPrinter
-from helpers import download_file, retrieve_url
+sys.path.insert(0, abspath(join(dirname(__file__), 'qbt')))
+from qbt.novaprinter import prettyPrinter
+from qbt.helpers import retrieve_url
 
 KILOBYTE = 1024
 SIZES = {"kB": KILOBYTE, "MB": KILOBYTE ** 2, "GB": KILOBYTE ** 3,
@@ -26,7 +29,6 @@ class torrentfunk(object):
         'all': 'all', 'music': 'music', 'movies': 'movies', 'games': 'games',
         'software': 'software', 'anime': 'anime', 'books': 'ebooks',
         'tv': 'television'}
-
 
     class FunkParser(HTMLParser):
         """ Parser class """
