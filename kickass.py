@@ -1,9 +1,6 @@
-#VERSION: 0.2
+#VERSION: 0.2.1
 #AUTHORS: Charitoo Dunamis (charitoodunamis@gmail.com)
 #LICENSE: GNU GPL v3
-=======
-#VERSION: 0.1
-#AUTHOR: Ezekiel N Bukari
 
 import logging
 
