@@ -81,9 +81,15 @@ class KickassHtmlParser(HTMLParser):
         data = data.strip()
         if key and data:
             if key == "size":
-                num, power = data.split("\xa0")
-                data = int(float(num) * SIZES.get(power, 1))
-            self.curr[key] = str(data)
+                try:
+                    num, power = data.split(u"\xa0")
+                    data = int(float(num) * SIZES.get(power, 1))
+                except ValueError:
+                    data = 0
+            try:
+                self.curr[key] = str(data)
+            except UnicodeEncodeError:
+                self.curr[key] = unicode(data)
 
 
 class kickass(object):
